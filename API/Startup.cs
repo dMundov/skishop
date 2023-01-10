@@ -24,7 +24,7 @@ namespace API
             services.AddDbContext<StoreContext>(
                 options => options.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
             services.AddScoped<IProductRepository, ProductRepository>();
-            
+            services.AddScoped(typeof(IGenericRepository<>),(typeof(GenericRepository<>)));
 
             services.AddSwaggerGen(c =>
             {
