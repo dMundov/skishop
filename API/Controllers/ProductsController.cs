@@ -1,15 +1,15 @@
 namespace API.Controllers
 {
     using API.Dtos;
+    using API.Errors;
     using AutoMapper;
     using Core.Entities;
     using Core.Interfaces;
     using Core.Specifications;
     using Microsoft.AspNetCore.Mvc;
 
-    [ApiController]
-    [Route("api/[controller]")]
-    public class ProductsController : ControllerBase
+    
+    public class ProductsController : BaseApiController
     {
 
         private readonly IGenericRepository<Product> _productsRepo;
@@ -39,11 +39,14 @@ namespace API.Controllers
 
         }
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)] // Swagger show status code expected from API 
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)] //  Tells to Swagger correct type of responses
         public async Task<ActionResult<ProductToReturnDto>> GetProduct(int id)
         {
             var spec = new ProductsWithTypesAndBrandsSpecification(id);
 
             var product = await _productsRepo.GetEntityWithSpec(spec);
+            if(product == null) return NotFound(new ApiResponse(404));
 
             return _mapper.Map<Product, ProductToReturnDto>(product);
         }
