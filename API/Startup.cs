@@ -1,3 +1,4 @@
+using API.Helpers;
 using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,7 @@ namespace API
                 options => options.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped(typeof(IGenericRepository<>),(typeof(GenericRepository<>)));
+            services.AddAutoMapper(typeof(MappingProfiles));
 
             services.AddSwaggerGen(c =>
             {
