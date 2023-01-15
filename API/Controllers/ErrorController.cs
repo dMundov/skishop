@@ -1,12 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using API.Errors;
-using Microsoft.AspNetCore.Mvc;
-
 namespace API.Controllers
 {
+    using API.Errors;
+    using Microsoft.AspNetCore.Mvc;
+
     [Route("errors/{code}")]
     [ApiExplorerSettings(IgnoreApi = true)]
     public class ErrorController : BaseApiController

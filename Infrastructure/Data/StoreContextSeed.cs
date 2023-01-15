@@ -1,9 +1,9 @@
-using System.Text.Json;
-using Core.Entities;
-using Microsoft.Extensions.Logging;
-
 namespace Infrastructure.Data
 {
+    using System.Text.Json;
+    using Core.Entities;
+    using Microsoft.Extensions.Logging;
+
     public class StoreContextSeed
     {
         public static async Task SeedAsync(StoreContext context, ILoggerFactory loggerFactory)
@@ -35,21 +35,21 @@ namespace Infrastructure.Data
                     }
                     await context.SaveChangesAsync();
                 }
-                
-                if(!context.Products.Any())
+
+                if (!context.Products.Any())
                 {
-                    var productsData = 
+                    var productsData =
                         File.ReadAllText("../Infrastructure/Data/SeedData/products.json");
                     var products = JsonSerializer.Deserialize<List<Product>>(productsData);
 
-                    foreach(var product in products)
+                    foreach (var product in products)
                     {
                         context.Products.Add(product);
                     }
                     await context.SaveChangesAsync();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 var logger = loggerFactory.CreateLogger<StoreContextSeed>();
                 logger.LogError(ex.Message);

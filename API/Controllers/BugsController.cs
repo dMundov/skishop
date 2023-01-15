@@ -1,15 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using API.Errors;
-using Infrastructure.Data;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-
 namespace API.Controllers
 {
+    using API.Errors;
+    using Infrastructure.Data;
+    using Microsoft.AspNetCore.Mvc;
+    
     public class BugsController : BaseApiController
     {
         private readonly StoreContext _context;

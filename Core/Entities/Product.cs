@@ -1,7 +1,7 @@
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace Core.Entities
 {
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public class Product : BaseEntity
     {     
         public string Name { get; set; }

@@ -1,14 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using API.Errors;
-using Core.Interfaces;
-using Infrastructure.Data;
-using Microsoft.AspNetCore.Mvc;
-
 namespace API.Extensions
 {
+    using API.Errors;
+    using Core.Interfaces;
+    using Infrastructure.Data;
+    using Microsoft.AspNetCore.Mvc;
+    
     public static class ApplicationServicesExtensions
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)

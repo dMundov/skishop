@@ -1,9 +1,9 @@
-using API.Dtos;
-using AutoMapper;
-using Core.Entities;
-
 namespace API.Helpers
 {
+    using API.Dtos;
+    using AutoMapper;
+    using Core.Entities;
+
     public class MappingProfiles : Profile
     {
         public MappingProfiles()

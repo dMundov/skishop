@@ -1,8 +1,8 @@
-using Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
-
 namespace API
 {
+    using Infrastructure.Data;
+    using Microsoft.EntityFrameworkCore;
+
     public class Program
     {
         public static async Task Main(string[] args)

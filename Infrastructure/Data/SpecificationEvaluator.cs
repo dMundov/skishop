@@ -1,13 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Core.Entities;
-using Core.Specifications;
-using Microsoft.EntityFrameworkCore;
-
 namespace Infrastructure.Data
 {
+    using Core.Entities;
+    using Core.Specifications;
+    using Microsoft.EntityFrameworkCore;
+
     public class SpecificationEvaluator<TEntity> where TEntity : BaseEntity
     {
         public static IQueryable<TEntity> GetQuery(IQueryable<TEntity> inputQuery,
