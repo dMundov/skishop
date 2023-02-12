@@ -7,7 +7,7 @@
         <span class="mb-2">{{product.price | currency}}</span>
             <div class="btn-group mt-auto">
                 <button type="button" class="btn btn-outline-secondary me-2"><i class="fa fa-shopping-cart"></i></button>
-                <button type="button" class="btn btn-outline-secondary">View</button>
+                <button routerLink="/shop/{{product.id}}" class="btn btn-outline-secondary">View</button>
             </div>
             <small class="text-muted">9 mins</small>
         </div>

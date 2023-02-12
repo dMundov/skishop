@@ -1,10 +1,11 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay, map } from 'rxjs';
+import { map} from 'rxjs';
 import { IBrand } from '../shared/models/brand';
 import { IPagination } from '../shared/models/pagination';
 import { IType } from '../shared/models/productType';
 import { ShopParams } from '../shared/models/shopParams';
+import { Product } from '../shared/models/product';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,10 @@ export class ShopService {
           return response.body;
         })
       );
+  }
+
+  getProduct(id: number){
+    return this.http.get<Product>(this.baseURl + 'products/' + id);
   }
 
   getBrands(){
